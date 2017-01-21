@@ -3,7 +3,7 @@
 
     function HomeServices($rootScope, $http, $q, $log) {
 
-        var sayHelloEndpoint = $rootScope.WebAPI + 'sayhello?name=Luke';
+        var sayHelloEndpoint = $rootScope.WebAPI + 'sayhello';
 
         return {
             getAllInfo: getAllInfo,
@@ -27,12 +27,12 @@
             return deferred.promise;
         }
 
-        function sayHello() {
+        function sayHello(input) {
 
             var deferred = $q.defer();
             $http({
                     method: "GET",
-                    url: sayHelloEndpoint,
+                    url: sayHelloEndpoint + '?name=' + input,
                 })
                 .then(function(response) {
                     deferred.resolve(response.data.message);

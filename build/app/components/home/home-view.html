@@ -1,8 +1,14 @@
-<!-- Add your site or application content here -->
 <header>
-    <h1>Hello World!</h1>
+  <div class="container">
+      <h1>Hello World!</h1>
+  </div>
 </header>
 
 <div class="container">
-  {{ Home.message }}
+  <p>Response : {{ Home.message }}</p>
+  <div class="form-group">
+    <input class="form-control" type="text" name="name" ng-model="Home.messageInput">
+    <br>
+    <button class="primary btn btn-large" ng-click="Home.updateMessage()">Send!</button>
+  </div>
 </div>
