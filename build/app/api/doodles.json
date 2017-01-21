@@ -1,0 +1,44 @@
+[{
+    "id" : 1,
+    "name": "mono",
+    "team": "foo",
+    "attributes": {
+        "speed": 46,
+        "strength": 28,
+        "intelligence": 69
+    },
+    "enabled": true
+},
+{
+    "id" : 2,
+    "name": "evil",
+    "team": "doo",
+    "attributes": {
+        "speed": 53,
+        "strength": 23,
+        "intelligence": 99
+    },
+    "enabled": true
+},
+{
+    "id" : 3,
+    "name": "odd",
+    "team": "woo",
+    "attributes": {
+        "speed": 74,
+        "strength": 81,
+        "intelligence": 4
+    },
+    "enabled": true
+},
+{
+    "id" : 4,
+    "name": "run",
+    "team": "poo",
+    "attributes": {
+        "speed": 99,
+        "strength": 11,
+        "intelligence": 2
+    },
+    "enabled": true
+}]
