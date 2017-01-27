@@ -5,19 +5,17 @@
     "Luke Stankus <stankusl@gmail.com>"
   ],
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components"
-  ],
-  "dependencies": {
-    "bootstrap": "v4.0.0-alpha.2",
-    "AngularJS-Toaster": "latest",
-    "jquery": "latest",
-    "angular": "latest",
-    "angular-bootstrap": "latest",
-    "angular-ui-router": "latest",
-    "angular-sanitize": "latest"
-  },
-  "devDependencies": {
+      "**/.*",
+      "node_modules",
+      "bower_components"
+    ],
+    "dependencies": {
+      "bootstrap": "v4.0.0-alpha.2",
+      "jquery": "latest",
+      "angular": "latest",
+      "angular-bootstrap": "latest",
+      "angular-ui-router": "latest",
+      "angular-sanitize": "latest"
+    },
+    "devDependencies": {}
   }
-}

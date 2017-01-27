@@ -48,6 +48,28 @@ var path = {
     clean: 'build/'
 };
 
+// SERVER
+
+// ======================== Heroku Server Configuration ========================
+
+
+
+gulp.task('serve', function () {
+  var express = require("express");
+  var bodyParser = require("body-parser");
+
+  var app = express();
+  app.use(express.static(__dirname + "/build"));
+  app.use(bodyParser.json());
+
+
+  var server = app.listen(process.env.PORT || 8080, function () {
+      var port = server.address().port;
+      console.log("App now running on port", port);
+  });
+
+});
+
 
 /////////////////////////////////////////////////////////////////////////////
 // PRINT ERRORS
@@ -57,7 +79,7 @@ function printError(error) {
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// BROWSERSYNC SERVE
+//BROWSERSYNC SERVE
 var config = {
     server: {
         baseDir: "./build",
@@ -70,13 +92,13 @@ var config = {
     files: ['./build/**/*'],
     tunnel: false,
     host: 'localhost',
-    port: 888,
+    port: process.env.PORT || 8080,
     notify: false,
     logPrefix: "frontend",
     watchTask: true
 };
 
-gulp.task('serve', function () {
+gulp.task('serve2', function () {
     setTimeout(function () {
         browserSync(config);
     }, 5000)
@@ -192,3 +214,4 @@ gulp.task('clean', function (cb) {
 /////////////////////////////////////////////////////////////////////////////
 // DEFAULT TASK
 gulp.task('default', ['build', 'serve', 'watch']);
+gulp.task('develop', ['build', 'serve2', 'watch']);

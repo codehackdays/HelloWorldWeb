@@ -12,3 +12,34 @@
     <button class="primary btn btn-large" ng-click="Home.updateMessage()">Send!</button>
   </div>
 </div>
+
+<div class="container">
+  <pre>
+    {{ Home.values | json }}
+  </pre>
+
+
+  <div class="value-pair">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group">
+            Key:
+            <input ng-model="Home.key" type="text" class="form-control">
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="form-group">
+          <div class="form-group">
+              Value:
+              <input ng-model="Home.value" type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <button class="pribary btn btn-large" ng-click="Home.clickSetPair(Home.key, Home.value)">Set Pair</button>
+  </div>
+</div>
