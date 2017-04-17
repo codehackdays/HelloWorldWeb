@@ -8,10 +8,21 @@
         self.messageInput = '';
 
         // Values
+        self.token = {};
         self.values = {};
 
+        self.askToken = function() {
+            HomeServices.askToken().then(
+            function(result) {
+                self.token = result;
+            },
+            function(err) {
+                console.log('Error retrieving from endpoint: ', err);
+            });
+        }
+
         self.getValues = function() {
-          HomeServices.getValues().then(
+          HomeServices.getValues(self.token).then(
           function(result) {
               self.values = result;
           },
@@ -24,7 +35,7 @@
             console.log(key);
             console.log(value);
 
-            HomeServices.setValues(key,value).then(
+            HomeServices.setValues(self.token,key,value).then(
             function(result) {
                 self.message = result;
             },
@@ -35,7 +46,7 @@
 
         self.updateMessage = function() {
 
-          HomeServices.sayHello(self.messageInput).then(
+          HomeServices.sayHello(self.token,self.messageInput).then(
           function(result) {
               self.message = result;
           },
@@ -44,7 +55,7 @@
           });
         }
 
-        HomeServices.sayHello().then(
+        HomeServices.sayHello(self.token).then(
         function(result) {
             self.message = result;
         },
