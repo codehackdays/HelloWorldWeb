@@ -5,6 +5,8 @@
 </header>
 
 <div class="container">
+  <p>Client_Id : {{ process.env.Client_Id }}</p>
+  <p>Token : {{ Home.token | json }}</p>
   <p>Response : {{ Home.message }}</p>
   <div class="form-group">
     <button class="primary btn btn-large" ng-click="Home.askToken()">Auth!</button>
@@ -19,7 +21,6 @@
   <pre>
     {{ Home.values | json }}
   </pre>
-
 
   <div class="value-pair">
     <div class="row">
