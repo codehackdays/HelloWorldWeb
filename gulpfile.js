@@ -75,7 +75,6 @@ gulp.task('serve', function () {
     request(options, function (error, response, body) {
       if (error) { throw error };
 
-      res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Content-Type', 'application/json');
       res.send(JSON.stringify(body));
     });
