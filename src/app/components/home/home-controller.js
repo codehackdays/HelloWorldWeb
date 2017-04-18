@@ -7,12 +7,16 @@
         self.message = '';
         self.messageInput = '';
 
-        // Values
+        // Auth0
+        self.id = process.env.Client_Id;
+        self.secret = process.env.Client_Secret;
         self.token = {};
+
+        // Values
         self.values = {};
 
         self.askToken = function() {
-            HomeServices.askToken().then(
+            HomeServices.askToken(self.id,self.secret).then(
             function(result) {
                 self.token = result;
             },

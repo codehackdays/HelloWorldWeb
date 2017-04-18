@@ -15,7 +15,7 @@
             setValues: setValues
         };
 
-        function askToken() {
+        function askToken(id, secret) {
 
             var deferred = $q.defer();
             $http({
@@ -25,8 +25,8 @@
                 })
                 .then(function(response) {
                     deferred.resolve({
-                      "client_id":process.env.Client_Id,
-                      "client_secret":process.env.Client_Secret,
+                      "client_id":id,
+                      "client_secret":secret,
                       "audience":$rootScope.WebAPI,
                       "grant_type":"client_credentials"
                     });
