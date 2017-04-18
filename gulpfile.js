@@ -72,14 +72,16 @@ gulp.task('serve', function () {
       }
     };
 
-    request(options, function (error, response, body) {
-      if (error) { throw error };
+    res.send("win");
 
-      console.log(response);
-      console.log(body);
+//    request(options, function (error, response, body) {
+//      if (error) { throw error };
+//
+//      console.log(response);
+//      console.log(body);
 
-      res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify(body));
+//      res.setHeader('Content-Type', 'application/json');
+//      res.send(JSON.stringify(body));
     });
   });
 
