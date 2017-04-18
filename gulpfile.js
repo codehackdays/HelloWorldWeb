@@ -60,17 +60,17 @@ gulp.task('serve', function () {
   app.use(bodyParser.json());
 
   app.get('/token', function (req, res) {
-    var options = {
-      method: 'POST',
-      url: 'https://codehackdays.eu.auth0.com/oauth/token',
-      headers: { 'content-type': 'application/json' },
-      body: {
-        "client_id":process.env.CLIENT_ID,
-        "client_secret":process.env.CLIENT_SECRET,
-        "audience":"https://codehackdays-helloworld.herokuapp.com/",
-        "grant_type":"client_credentials"
-      }
-    };
+//    var options = {
+//      method: 'POST',
+//      url: 'https://codehackdays.eu.auth0.com/oauth/token',
+//      headers: { 'content-type': 'application/json' },
+//      body: {
+//        "client_id":process.env.CLIENT_ID,
+//        "client_secret":process.env.CLIENT_SECRET,
+//        "audience":"https://codehackdays-helloworld.herokuapp.com/",
+//        "grant_type":"client_credentials"
+//      }
+//    };
 
     res.send("win");
 
