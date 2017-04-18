@@ -21,14 +21,14 @@
             $http({
                     method: "POST",
                     url: tokenEndpoint,
-                    headers: { 'content-type':'application/json' },
+                    headers: { 'content-type':'application/json' }
                 })
                 .then(function(response) {
                     deferred.resolve({
                       "client_id":process.env.Client_Id,
                       "client_secret":process.env.Client_Secret,
                       "audience":$rootScope.WebAPI,
-                      "grant_type":"client_credentials",
+                      "grant_type":"client_credentials"
                     });
                 })
                 .catch(function(response) {
@@ -44,7 +44,7 @@
             $http({
                     method: "GET",
                     url: pictureEndpoint,
-                    headers: { authorization: "'" + token.token_type + " " + token.access_token + "'" },
+                    headers: { authorization: "'" + token.token_type + " " + token.access_token + "'" }
                 })
                 .then(function(response) {
                     deferred.resolve(response.data);
@@ -62,7 +62,7 @@
             $http({
                     method: "GET",
                     url: sayHelloEndpoint + '?name=' + input,
-                    headers: { authorization: "'" + token.token_type + " " + token.access_token + "'" },
+                    headers: { authorization: "'" + token.token_type + " " + token.access_token + "'" }
                 })
                 .then(function(response) {
                     deferred.resolve(response.data.message);
@@ -79,8 +79,8 @@
             var deferred = $q.defer();
             $http({
                     method: "POST",
-                    url: keysEndpoint
-                    headers: { authorization: "'" + token.token_type + " " + token.access_token + "'" },
+                    url: keysEndpoint,
+                    headers: { authorization: "'" + token.token_type + " " + token.access_token + "'" }
                 })
                 .then(function(response) {
                     deferred.resolve(response.data.message);
@@ -97,8 +97,8 @@
             var deferred = $q.defer();
             $http({
                     method: "GET",
-                    url: keysEndpoint
-                    headers: { authorization: "'" + token.token_type + " " + token.access_token + "'" },
+                    url: keysEndpoint,
+                    headers: { authorization: "'" + token.token_type + " " + token.access_token + "'" }
                 })
                 .then(function(response) {
                     deferred.resolve(response.data.message);
