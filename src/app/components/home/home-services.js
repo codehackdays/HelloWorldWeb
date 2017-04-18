@@ -3,7 +3,7 @@
 
     function HomeServices($rootScope, $http, $q, $log) {
 
-        var tokenEndpoint = 'https://codehackdays.eu.auth0.com/oauth/token';
+        var tokenEndpoint = $rootScope.WebToken + 'token';
         var sayHelloEndpoint = $rootScope.WebAPI + 'sayhello';
         var keysEndpoint = $rootScope.WebAPI + 'keys';
 
@@ -15,21 +15,16 @@
             setValues: setValues
         };
 
-        function askToken(id, secret) {
+        function askToken() {
 
             var deferred = $q.defer();
             $http({
-                    method: "POST",
+                    method: "GET",
                     url: tokenEndpoint,
                     headers: { 'content-type':'application/json' }
                 })
                 .then(function(response) {
-                    deferred.resolve({
-                      "client_id":id,
-                      "client_secret":secret,
-                      "audience":$rootScope.WebAPI,
-                      "grant_type":"client_credentials"
-                    });
+                  deferred.resolve(response.data);
                 })
                 .catch(function(response) {
                     $log.error('Error retrieving token: ' + status);

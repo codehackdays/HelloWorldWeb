@@ -8,15 +8,13 @@
         self.messageInput = '';
 
         // Auth0
-        self.id = process.env.CLIENT_ID;
-        self.secret = process.env.CLIENT_SECRET;
         self.token = {};
 
         // Values
         self.values = {};
 
         self.askToken = function() {
-            HomeServices.askToken(self.id,self.secret).then(
+            HomeServices.askToken().then(
             function(result) {
                 self.token = result;
             },

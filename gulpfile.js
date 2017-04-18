@@ -51,9 +51,6 @@ var path = {
 // SERVER
 
 // ======================== Heroku Server Configuration ========================
-
-
-
 gulp.task('serve', function () {
   var express = require("express");
   var bodyParser = require("body-parser");
@@ -62,14 +59,33 @@ gulp.task('serve', function () {
   app.use(express.static(__dirname + "/build"));
   app.use(bodyParser.json());
 
+  app.get('/token', function (req, res) {
+    var options = {
+      method: 'POST',
+      url: 'https://codehackdays.eu.auth0.com/oauth/token',
+      headers: { 'content-type': 'application/json' },
+      body: {
+        "client_id":process.env.CLIENT_ID,
+        "client_secret":process.env.CLIENT_SECRET,
+        "audience":"https://codehackdays-helloworld.herokuapp.com/",
+        "grant_type":"client_credentials"
+      }
+    };
+
+    request(options, function (error, response, body) {
+      if (error) { throw error };
+
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Content-Type', 'application/json');
+      res.send(JSON.stringify(body));
+    });
+  });
 
   var server = app.listen(process.env.PORT || 8080, function () {
       var port = server.address().port;
       console.log("App now running on port", port);
   });
-
 });
-
 
 /////////////////////////////////////////////////////////////////////////////
 // PRINT ERRORS
