@@ -8,8 +8,8 @@
         self.messageInput = '';
 
         // Auth0
-        self.id = process.env.Client_Id;
-        self.secret = process.env.Client_Secret;
+        self.id = process.env.CLIENT_ID;
+        self.secret = process.env.CLIENT_SECRET;
         self.token = {};
 
         // Values
