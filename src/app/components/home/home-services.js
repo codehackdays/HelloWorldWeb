@@ -3,7 +3,7 @@
 
     function HomeServices($rootScope, $http, $q, $log) {
 
-        var tokenEndpoint = $rootScope.WebToken + 'token';
+        var tokenEndpoint = $rootScope.WebToken + 'helloworld';
         var sayHelloEndpoint = $rootScope.WebAPI + 'sayhello';
         var keysEndpoint = $rootScope.WebAPI + 'keys';
 
