@@ -24,7 +24,7 @@
                     headers: { 'content-type':'application/json' }
                 })
                 .then(function(response) {
-                  deferred.resolve(JSON.parse(response.data));
+                  deferred.resolve(response.data);
                 })
                 .catch(function(response) {
                     $log.error('Error retrieving token: ' + status);

@@ -5,7 +5,8 @@
 </header>
 
 <div class="container">
-  <p>Token : {{ Home.token | json }}</p>
+  <p>Type : {{ Home.token.token_type }}</p>
+  <p>Token : {{ Home.token.access_token }}</p>
   <p>Response : {{ Home.message }}</p>
   <div class="form-group">
     <button class="primary btn btn-large" ng-click="Home.askToken()">Auth!</button>
