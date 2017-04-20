@@ -37,6 +37,8 @@
 
             var deferred = $q.defer();
             $http({
+                    async: true,
+                    crossDomain: true,
                     method: "GET",
                     url: pictureEndpoint,
                     headers: { 'authorization': "'" + token.token_type + " " + token.access_token + "'" }
@@ -55,6 +57,8 @@
 
             var deferred = $q.defer();
             $http({
+                    async: true,
+                    crossDomain: true,
                     method: "GET",
                     url: sayHelloEndpoint + '?name=' + input,
                     headers: { 'authorization': "'" + token.token_type + " " + token.access_token + "'" }
@@ -73,6 +77,8 @@
 
             var deferred = $q.defer();
             $http({
+                    async: true,
+                    crossDomain: true,
                     method: "POST",
                     url: keysEndpoint,
                     headers: { 'authorization': "'" + token.token_type + " " + token.access_token + "'" }
@@ -91,6 +97,8 @@
 
             var deferred = $q.defer();
             $http({
+                    async: true,
+                    crossDomain: true,
                     method: "GET",
                     url: keysEndpoint,
                     headers: { 'authorization': "'" + token.token_type + " " + token.access_token + "'" }
