@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <!--<pre>
+        {{ eventsCtrl | json }}
+        </pre>-->
+
+        <div class="col-xs-12">
+            <div class="card" ng-repeat="event in eventsCtrl.events">
+                <div class="card-block">
+                    <h4 class="card-title">{{event.name}}</h4>
+                    <p class="card-text">{{event.description}}</p>
+                    {{event.start}}<br />
+                    {{event.end}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

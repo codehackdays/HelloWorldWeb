@@ -57,13 +57,13 @@
           });
         }
 
-        HomeServices.sayHello(self.token).then(
-        function(result) {
-            self.message = result;
-        },
-        function(err) {
-            console.log('Error retrieving from endpoint: ', err);
-        });
+        // HomeServices.sayHello(self.token).then(
+        // function(result) {
+        //     self.message = result;
+        // },
+        // function(err) {
+        //     console.log('Error retrieving from endpoint: ', err);
+        // });
 
     };
 

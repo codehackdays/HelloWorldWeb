@@ -59,7 +59,15 @@ gulp.task('serve', function () {
   app.use(express.static(__dirname + "/build"));
   app.use(bodyParser.json());
 
-  var server = app.listen(process.env.PORT || 8080, function () {
+  app.use(function(req, res) {
+      res.setHeader('Access-Control-Allow-Origin', '*')
+  });
+
+  app.get('/*', function(req, res) {
+      res.sendFile(__dirname + '/build/index.html');
+  });
+
+  var server = app.listen(process.env.PORT || 8081, function () {
       var port = server.address().port;
       console.log("App now running on port", port);
   });

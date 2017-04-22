@@ -5,8 +5,12 @@
 </header>
 
 <div class="container">
+  <p>Type : {{ Home.token.token_type }}</p>
+  <p>Token : {{ Home.token.access_token }}</p>
   <p>Response : {{ Home.message }}</p>
   <div class="form-group">
+    <button class="primary btn btn-large" ng-click="Home.askToken()">Auth!</button>
+    <br>
     <input class="form-control" type="text" name="name" ng-model="Home.messageInput">
     <br>
     <button class="primary btn btn-large" ng-click="Home.updateMessage()">Send!</button>
@@ -17,7 +21,6 @@
   <pre>
     {{ Home.values | json }}
   </pre>
-
 
   <div class="value-pair">
     <div class="row">

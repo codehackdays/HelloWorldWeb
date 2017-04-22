@@ -3,22 +3,45 @@
 
     function HomeServices($rootScope, $http, $q, $log) {
 
+        var tokenEndpoint = $rootScope.WebToken + 'helloworld';
         var sayHelloEndpoint = $rootScope.WebAPI + 'sayhello';
         var keysEndpoint = $rootScope.WebAPI + 'keys';
 
         return {
+            askToken: askToken,
             getAllInfo: getAllInfo,
             sayHello: sayHello,
             getValues: getValues,
             setValues: setValues
         };
 
-        function getAllInfo() {
+        function askToken() {
 
             var deferred = $q.defer();
             $http({
                     method: "GET",
+                    url: tokenEndpoint,
+                    headers: { 'content-type':'application/json' }
+                })
+                .then(function(response) {
+                  deferred.resolve(response.data);
+                })
+                .catch(function(response) {
+                    $log.error('Error retrieving token: ' + status);
+                    return $q.reject('Error retrieving token');
+                });
+            return deferred.promise;
+        }
+
+        function getAllInfo(token) {
+
+            var deferred = $q.defer();
+            $http({
+                    async: true,
+                    crossDomain: true,
+                    method: "GET",
                     url: pictureEndpoint,
+                    headers: { authorization: token.token_type + " " + token.access_token }
                 })
                 .then(function(response) {
                     deferred.resolve(response.data);
@@ -30,12 +53,15 @@
             return deferred.promise;
         }
 
-        function sayHello(input) {
+        function sayHello(token, input) {
 
             var deferred = $q.defer();
             $http({
+                    async: true,
+                    crossDomain: true,
                     method: "GET",
                     url: sayHelloEndpoint + '?name=' + input,
+                    headers: { authorization: token.token_type + " " + token.access_token }
                 })
                 .then(function(response) {
                     deferred.resolve(response.data.message);
@@ -47,12 +73,15 @@
             return deferred.promise;
         }
 
-        function setValues(key, value) {
+        function setValues(token, key, value) {
 
             var deferred = $q.defer();
             $http({
+                    async: true,
+                    crossDomain: true,
                     method: "POST",
-                    url: keysEndpoint
+                    url: keysEndpoint,
+                    headers: { authorization: token.token_type + " " + token.access_token }
                 })
                 .then(function(response) {
                     deferred.resolve(response.data.message);
@@ -64,12 +93,15 @@
             return deferred.promise;
         }
 
-        function getValues() {
+        function getValues(token) {
 
             var deferred = $q.defer();
             $http({
+                    async: true,
+                    crossDomain: true,
                     method: "GET",
-                    url: keysEndpoint
+                    url: keysEndpoint,
+                    headers: { authorization: token.token_type + " " + token.access_token }
                 })
                 .then(function(response) {
                     deferred.resolve(response.data.message);
@@ -80,8 +112,6 @@
                 });
             return deferred.promise;
         }
-
-
 
     }
 

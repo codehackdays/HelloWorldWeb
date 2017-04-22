@@ -14,6 +14,13 @@
             controllerAs: 'Home'
         })    
 
+        .state('events', {
+            url: '/events',
+            templateUrl: './app/components/events/events-view.html',
+            controller: 'EventsController',
+            controllerAs: 'eventsCtrl'
+        })
+
         $urlRouterProvider.otherwise('/');
     }]);
 
