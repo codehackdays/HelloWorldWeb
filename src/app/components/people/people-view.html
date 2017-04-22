@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <!--<pre>
+        {{ peopleCtrl | json }}
+        </pre>-->
+
+        <div class="col-xs-12">
+            <div class="card" ng-repeat="people in peopleCtrl.people">
+                <div class="card-block">
+                    <h4 class="card-title">{{person.name}}</h4>
+                    <p class="card-text">{{person.description}}</p>
+                    {{person.start}}<br />
+                    {{person.end}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
