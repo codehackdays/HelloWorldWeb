@@ -22,25 +22,26 @@
                 deferred.resolve(response.data);
             })
             .catch(function (response) {
-                $log.error('Error adding Partner data: ' + response);
-                return $q.reject('Error adding Partner data.');
+                $log.error('Error adding person: ' + response);
+                return $q.reject('Error adding person.');
             });
 
             return deferred.promise;
         }
 
-        function getPeople(name) {
+        function getPeople(token) {
             var deferred = $q.defer();
             $http({
                 method: "GET",
                 url: endpoint,
+                headers: { Authorization: token.token_type + " " + token.access_token }
             })
             .then(function (response) {
                 deferred.resolve(response.data);
             })
             .catch(function (response) {
-                $log.error('Error adding Partner data: ' + response);
-                return $q.reject('Error adding Partner data.');
+                $log.error('Error getting people: ' + response);
+                return $q.reject('Error getting people.');
             });
             return deferred.promise;
         }

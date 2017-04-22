@@ -11,7 +11,7 @@
         TokenService.retrieve().then(function(token) {
             // Then retrieve events
             getEvents(token);
-        })
+        });
 
         function getEvents(token) {
             EventsService.getEvents(token).then(function(events) {

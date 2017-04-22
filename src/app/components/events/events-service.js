@@ -43,8 +43,8 @@
                 deferred.resolve(response.data);
             })
             .catch(function (response) {
-                $log.error('Error adding Partner data: ' + response);
-                return $q.reject('Error adding Partner data.');
+                $log.error('Error adding events: ' + response);
+                return $q.reject('Error adding events.');
             });
 
             return deferred.promise;
@@ -55,14 +55,14 @@
             $http({
                 method: "GET",
                 url: endpoint,
-                headers: { authorization: token.token_type + " " + token.access_token }
+                headers: { Authorization: token.token_type + " " + token.access_token }
             })
             .then(function (response) {
                 deferred.resolve(response.data);
             })
             .catch(function (response) {
-                $log.error('Error adding Partner data: ' + response);
-                return $q.reject('Error adding Partner data.');
+                $log.error('Error getting events: ' + response);
+                return $q.reject('Error getting events.');
             });
             return deferred.promise;
         }

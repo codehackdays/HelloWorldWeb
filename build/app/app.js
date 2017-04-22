@@ -23,7 +23,6 @@
             })
             .then(function(response) {
                 TOKEN = response.data;
-                console.log(response.data)
                 deferred.resolve(response.data);
             })
             .catch(function(response) {
