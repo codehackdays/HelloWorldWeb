@@ -1,8 +1,8 @@
 (function() {
     'use strict'
-    angular.module('application').controller('EventsController', ['EventsService', 'TokenService', EventsController, TokenService]);
+    angular.module('application').controller('EventsController', ['EventsService', 'TokenService', EventsController]);
 
-    function EventsController(EventsService) {
+    function EventsController(EventsService, TokenService) {
         var self = this;
         
         self.events = null;
