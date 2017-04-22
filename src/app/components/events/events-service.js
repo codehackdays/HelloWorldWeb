@@ -50,11 +50,12 @@
             return deferred.promise;
         }
 
-        function getEvents(name) {
+        function getEvents(token) {
             var deferred = $q.defer();
             $http({
                 method: "GET",
                 url: endpoint,
+                headers: { authorization: token.token_type + " " + token.access_token }
             })
             .then(function (response) {
                 deferred.resolve(response.data);

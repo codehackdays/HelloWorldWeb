@@ -2,9 +2,8 @@
    'use strict';
     angular.module('application', ['ui.router'])
 
-    .factory('TokenService', ['$http', '$rootScope', function($http, $rootScope) {
+    .factory('TokenService', ['$q', '$http', '$rootScope', function($q, $http, $rootScope) {
         //
-
         var TOKEN = null;
         var tokenEndpoint = $rootScope.WebToken + 'helloworld';
 
@@ -24,6 +23,7 @@
             })
             .then(function(response) {
                 TOKEN = response.data;
+                console.log(response.data)
                 deferred.resolve(response.data);
             })
             .catch(function(response) {
